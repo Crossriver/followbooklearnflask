@@ -9,7 +9,7 @@ bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-    return render_template('extendsdemo.html')
+    return render_template('base_bootstrap.html')
 
 @app.errorhandler(404)
 def page_not_found(e):
