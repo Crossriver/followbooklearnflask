@@ -12,27 +12,31 @@ bootstrap = Bootstrap(app)
 
 
 class NameForm(FlaskForm):
-    name = StringField('what is your name?', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    name = StringField('what is your namex?', validators=[DataRequired()])
+    submit = SubmitField('Submitx')
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # name = None
-    # form = NameForm()
-    # if form.validate_on_submit():
-    #     old_name = session.get('name')
-    #     if old_name is not None and old_name != form.name.data:
-    #         flash('looks like you have changed you name!')
-    #     session['name'] = form.name.data
-    #     return redirect(url_for('index'))
-    # return render_template('index.html', form=form, name=session.get('name'))
+    name = None
+    form = NameForm()
+    if form.validate_on_submit():
+        old_name = session.get('name')
+        if old_name is not None and old_name != form.name.data:
+            flash('looks like you have changed you name!')
+        session['name'] = form.name.data
+        return redirect(url_for('index'))
+        # name = form.name.data
+        # form.name.data = ''
+    return render_template('indexx.html', form=form, name=session.get('name'))
+    # return render_template('indexx.html', form=form, name=name)
     # return '<h1>Hello,Tiaoo!</h1>'
-    return render_template('index.html')
+    # return render_template('indexx.html')
+
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return render_template('404x.html'), 404
 
 
 @app.route('/user/<name>')
@@ -41,7 +45,7 @@ def user(name):
     # name=['a','b','v','d']
     # return render_template('user2.html', name=name)
     # return '<h1>Hello,{}!</h1>'.format(name)
-    return render_template('user.html',name=name)
+    return render_template('userx.html', name=name)
 
 
 @app.route('/test/ee')
